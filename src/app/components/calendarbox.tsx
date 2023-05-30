@@ -3,11 +3,8 @@ import { useState } from "react";
 import calendarData from "../../data/data (5).json";
 import {
   Avatar,
-  Box,
   Card,
   CardContent,
-  ImageList,
-  ImageListItem,
   List,
   ListItem,
   ListItemAvatar,
@@ -17,12 +14,23 @@ import {
 } from "@mui/material";
 const CalendarBox = () => {
   const [data, setData] = useState(calendarData.calendar);
-  console.log(data);
 
+  const today = new Date().toISOString().substring(0,10)
+
+  const filterToDate = data.map((item)=>{
+    const filterStartTime = item.StartTimes.filter((innerItem)=>{
+        const innerDate = innerItem.substring(0,10);
+       return innerDate === today
+    });
+    return {...item ,StartTimes:filterStartTime}
+  })
+
+  
+  
   return (
     <Paper variant="outlined">
       <List>
-        {data.map((item) => (
+        {filterToDate.map((item) => (
           <Card variant="outlined">
             <CardContent sx={{padding:'0 0' , textAlign:'center'}}> 
                 <Typography variant='caption'  >
@@ -37,7 +45,7 @@ const CalendarBox = () => {
 
                 <ListItemText   >
                         <Typography variant="caption">{item.ContentsName}</Typography>
-                        <Typography> 시간</Typography>
+                        <Typography> {}</Typography>
                 </ListItemText>
             </ListItem>
             </CardContent>
@@ -46,6 +54,6 @@ const CalendarBox = () => {
       </List>
     </Paper>
   );
-};
+        }
 
 export default CalendarBox;

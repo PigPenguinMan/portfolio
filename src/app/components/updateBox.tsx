@@ -13,10 +13,10 @@ const UpdateBox = () => {
         overflow={"hidden"}
         alignItems="center"
       >
-      <Paper variant="outlined" sx={{height:'200px'}}>
+      <Paper variant="outlined" sx={{width:'100%',height:'200px' }}>
         {data
           ? data.map((item) => (
-              <ListItemButton component="a" href={item.Link} key={item.Date}>
+              <ListItemButton component="a" href={item.Link} key={item.Date} sx={{textAlign:'center'}}>
                 <ListItemText
                   primary={item.Date.substring(5, 10) + " 업데이트 내역"}
                 />

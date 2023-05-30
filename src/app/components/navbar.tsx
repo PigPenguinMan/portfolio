@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-const navItem = ["Main", "Lost", "Info"];
+const navItem = ["메인", "캐릭터", "랭킹"];
 
 const Navbar = () => {
   return (

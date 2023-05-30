@@ -1,30 +1,28 @@
-import { Box, ImageList, ImageListItem, ListItemButton } from "@mui/material";
+import {
+  Box,
+  ImageList,
+  ImageListItem,
+  ListItemButton,
+  Paper,
+} from "@mui/material";
 import React, { useState } from "react";
 import eventData from "../../data/data (5).json";
+import Carousel from "react-material-ui-carousel";
 
 const EventBox = () => {
   const [data, setData] = useState(eventData.events);
 
   return (
-    <Box
-      height="100%"
-      width="100%"
-      overflow="scroll"
-      //   display="flex"
-      //   flexDirection="column"
-    >
-      <ImageList cols={1} gap={1} sx={{ margin: "0", width: "100%" }}>
+    <Paper elevation={0}>
+      {/*MUI에 없는 Carousel을 위해 라이브러리 react-material-ui-carousel사용  */}
+      <Carousel indicators={false}>
         {data.map((item) => (
-          <ImageListItem key={item.Title} component={"a"} href={item.Link}>
-            <img
-              src={`${item.Thumbnail}?h=150&crop=auto&format=auto   `}
-              srcSet={`${item.Thumbnail}?h=150&crop=auto&format=auto`}
-              alt={item.Title}
-            />
-          </ImageListItem>
+          <Paper key={item.Title} elevation={0} component={"a"} href={item.Link}>
+            <img src={item.Thumbnail} width="100%" height="100%" />
+          </Paper>
         ))}
-      </ImageList>
-    </Box>
+      </Carousel>
+    </Paper>
   );
 };
 
