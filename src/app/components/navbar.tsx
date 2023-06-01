@@ -1,5 +1,5 @@
 "use client";
-import * as React from "react";
+import  React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import {
   Box,
@@ -12,9 +12,20 @@ import {
   Typography,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { useRouter } from "next/navigation";
+
+
+
 const navItem = ["메인", "캐릭터", "랭킹"];
 
 const Navbar = () => {
+  const router =useRouter()
+  const [chaName,setChaName] = useState('')
+ 
+  const handleSearch =(e:any)=>{
+      e.preventDefault()
+      router.push(`/character/${chaName}`);
+  }
   return (
     <CssBaseline>
       {/* reset.css 생성필요 X */}
@@ -32,16 +43,21 @@ const Navbar = () => {
                 width: "400px",
                 margin: "0",
                 color: "white",
+                flexDirection:'column'
               }}
             >
+              <form onSubmit={handleSearch}>
+
               <Input
               // 검색창 앞의 아이콘
-                startAdornment={
-                  <InputAdornment position="start">
-                    <SearchIcon sx={{ color: "white" }} />
+              endAdornment={
+                <InputAdornment  position="end" >
+                    <SearchIcon sx={{ color: "white"   }} />
                   </InputAdornment>
+                  
                 }
                 placeholder=""
+                value={chaName || ''}
                 fullWidth
                 // 언더라인의 컬러
                 sx={{
@@ -50,7 +66,10 @@ const Navbar = () => {
                     ":after": { borderBottomColor: "white" },
                   },
                 }}
-              />
+                onChange={(e:any)=>{setChaName(e.target.value)}}
+                />
+              
+              </form>
             </FormControl>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItem.map((item) => (
