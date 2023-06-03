@@ -1,7 +1,10 @@
-const ArmoryNameBox = () => {
+import { NameProp } from "@/app/character/[charaName]/page";
+
+
+const ArmoryNameBox = ({name}:NameProp) => {
     return ( 
         <div>
-            이름박스
+            {name}
         </div>
      );
 }

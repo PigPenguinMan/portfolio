@@ -7,13 +7,33 @@ import AdBox from "@/app/components/adbox";
 import ArmoryNameBox from "@/app/components/characterArmory/namebox";
 import CharInfoBox from "@/app/components/characterArmory/charinfo";
 import ColletionBox from "@/app/components/characterArmory/collectionbox";
+import { iSummaryData } from "./api.interface";
+
+export interface NameProp {
+  name: string;
+}
+export interface CharProp {
+  profile: {
+      CharacterClassName: string;
+      CharacterLevelImage: string;
+      CharacterLevel: number;
+      CharacterName: string;
+      GuildName: string;
+      ItemAvgLevel: string;
+      ItemMaxLevel: string;
+      ServerName: string;
+  };
+}
+
 
 const Page = ({}) => {
   const [charaData, setCharaData] = useState([]);
-  const [summaryData,setSummaryData] = useState([])
+  const [summaryData, setSummaryData] = useState<iSummaryData | null>(null);
   // characterName
   const { charaName } = useParams();
   const decodeName = decodeURIComponent(charaName);
+  // armory데이터에서 나눠지는 데이터들 
+  const [profileData,SetProfileData] = useState([])
 
   // characterName이 있는 계정의 모든 캐릭터정보 데이터
   const fetchCharaData = async () => {
@@ -50,24 +70,26 @@ const Page = ({}) => {
     } catch (error) {
       console.error("error", error);
     }
-  }
-//   useEffect(() => {
-//     fetchCharaData();
-//     fetchSummaryData()
-//   }, []);
+  };
 
-  // 계정의 캐릭터중에 검색한 캐릭터이름을 가진 요소만 필터링
-//   const findChara = charaData?.filter(
-//     (item: any) => item.CharacterName === decodeName
-//   );
 
+  useEffect(() => {
+      fetchCharaData();
+      fetchSummaryData()
+      
+      
+  }, []);
 
 
 
-// armory로 받아온 데이터를 prop으로 각 컴포넌트로 내려준다
   return (
     <Box height="100vh">
-      <Grid container alignItems={"center"} justifyContent={'center'} sx={{ flexGrow: 1 }}>
+      <Grid
+        container
+        alignItems={"center"}
+        justifyContent={"center"}
+        sx={{ flexGrow: 1 }}
+      >
         <Grid
           item
           xs={12}
@@ -83,22 +105,35 @@ const Page = ({}) => {
             <AdBox />
           </Box>
         </Grid>
-        <Grid item xs={12} md={11} mb={1} >
-          <Paper variant="outlined" sx={{height:'45px'}} >
-          <ArmoryNameBox/>
+        <Grid item xs={12} md={11} mb={1}>
+          <Paper variant="outlined" sx={{ height: "45px" }}>
+            <ArmoryNameBox name={decodeName} />
           </Paper>
         </Grid>
-        <Grid container item md={11} justifyContent={'space-between'} sx={{ height: "90vh" }}>
-          <Grid container item flexDirection={'column'} justifyContent={'flex-start'} xs={12} md={3.5} >
-            <Paper >
-                <CharInfoBox/>
+        <Grid
+          container
+          item
+          md={11}
+          justifyContent={"space-between"}
+          sx={{ height: "90vh" }}
+        >
+          <Grid
+            container
+            item
+            flexDirection={"column"}
+            justifyContent={"flex-start"}
+            xs={12}
+            md={3.5}
+          >
+            <Paper>
+              <CharInfoBox charaInfo={summaryData?.ArmoryProfile} />
             </Paper>
-            <Paper >
-                <ColletionBox />
+            <Paper>
+              <ColletionBox />
             </Paper>
           </Grid>
           <Grid item xs={12} md={7.5}>
-            <Paper variant="outlined" ></Paper>
+            <Paper variant="outlined"></Paper>
           </Grid>
         </Grid>
       </Grid>
