@@ -12,18 +12,7 @@ import { iSummaryData } from "./api.interface";
 export interface NameProp {
   name: string;
 }
-export interface CharProp {
-  profile: {
-      CharacterClassName: string;
-      CharacterLevelImage: string;
-      CharacterLevel: number;
-      CharacterName: string;
-      GuildName: string;
-      ItemAvgLevel: string;
-      ItemMaxLevel: string;
-      ServerName: string;
-  };
-}
+
 
 
 const Page = ({}) => {
@@ -76,10 +65,13 @@ const Page = ({}) => {
   useEffect(() => {
       fetchCharaData();
       fetchSummaryData()
-      
-      
   }, []);
+  
+  const filterProfileData = summaryData?.ArmoryProfile
+  const filterCollectData = summaryData?.Collectibles
 
+  
+  
 
 
   return (
@@ -126,10 +118,10 @@ const Page = ({}) => {
             md={3.5}
           >
             <Paper>
-              <CharInfoBox charaInfo={summaryData?.ArmoryProfile} />
+              <CharInfoBox armoryProfile={summaryData?.ArmoryProfile} />
             </Paper>
             <Paper>
-              <ColletionBox />
+              <ColletionBox collection={summaryData?.Collectibles}/>
             </Paper>
           </Grid>
           <Grid item xs={12} md={7.5}>

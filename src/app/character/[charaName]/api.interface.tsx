@@ -121,7 +121,7 @@ interface ItemInGemsInArmoryGem {
 }
 
 // ArmoryProfile
-interface ArmoryProfile {
+interface ArmoryProfile{
   CharacterClassName: string;
   CharacterImage: string;
   CharacterLevel: number;
@@ -336,3 +336,5 @@ export type {
   TeamDeathmatch,
   TeamElimination,
 };
+
+
