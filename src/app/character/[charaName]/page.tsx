@@ -67,6 +67,8 @@ const Page = ({}) => {
       fetchSummaryData()
   }, []);
   
+  console.log(summaryData);
+  
   const filterProfileData = summaryData?.ArmoryProfile
   const filterCollectData = summaryData?.Collectibles
 

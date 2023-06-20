@@ -11,15 +11,23 @@ interface CollectionBoxProps {
   collection?:Collectibles
 }
 
-/* 06/05 수집품 props정리중 종료 , collection을 맵으로 펼치거나 하드코딩으로 완성시키기 */
 const ColletionBox = ({ collection }: CollectionBoxProps) => {
     const data = collection;
+    
+    //Collectibles 객체를 맵으로 펴기 
+
+    const flatData = data ? Object.values(data).flat() : []
 
     return (
     <TableContainer component={Paper}>
       <Table>
-        <TableRow>
-           <TableCell></TableCell>
+        <TableRow >
+           {flatData.map((item , index)=>(
+            <TableCell key={index}>
+                <img src={item.Icon}/>
+            </TableCell>
+           ))}
+           {/* 06/20 tableBody 완성시키기 */}
         </TableRow>
       </Table>
     </TableContainer>
