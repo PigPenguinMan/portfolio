@@ -2,8 +2,10 @@ import { Collectibles, CollectiblesArray } from "@/app/character/[charaName]/api
 import {
   Paper,
   Table,
+  TableBody,
   TableCell,
   TableContainer,
+  TableHead,
   TableRow,
 } from "@mui/material";
 
@@ -15,22 +17,31 @@ const ColletionBox = ({ collection }: CollectionBoxProps) => {
     const data = collection;
     
     //Collectibles 객체를 맵으로 펴기 
-
     const flatData = data ? Object.values(data).flat() : []
-
     return (
     <TableContainer component={Paper}>
-      <Table>
-        <TableRow >
+      <Table sx={{display:'flex', flexDirection:'column'}}>
+        <TableHead >
+        <TableRow sx={{display:'flex' , justifyContent:'space-around'}} >
            {flatData.map((item , index)=>(
-            <TableCell key={index}>
-                <img src={item.Icon}/>
+               <TableCell key={index} sx={{display:'flex',justifyContent:'space-around',alignItems:'center',maxHeight:'25px' , maxWidth:'25px' , borderBottom:'none'}}>
+                <img src={item.Icon} style={{height:'30px', width:'30px' , borderRadius:'3px' }}/>
             </TableCell>
            ))}
-           {/* 06/20 tableBody 완성시키기 */}
         </TableRow>
+           </TableHead>
+           <TableBody >
+            <TableRow sx={{display:'flex' , flexDirection:'rows' , justifyContent:'space-around'}}>
+                {flatData.map((item , index) =>(
+                    <TableCell key={index} sx={{display:'flex',justifyContent:'space-around',alignItems:'center',height:'20px',maxWidth:'25px'}}>
+                        {item.Point}
+                    </TableCell>
+                ))}
+            </TableRow>
+           </TableBody>
       </Table>
     </TableContainer>
+    // 06/22 왼쪾 그리드 완성 
   );
 };
 

@@ -117,7 +117,7 @@ const Page = ({}) => {
             flexDirection={"column"}
             justifyContent={"flex-start"}
             xs={12}
-            md={3.5}
+            md={3}
           >
             <Paper>
               <CharInfoBox armoryProfile={summaryData?.ArmoryProfile} />
@@ -126,7 +126,7 @@ const Page = ({}) => {
               <ColletionBox collection={summaryData?.Collectibles}/>
             </Paper>
           </Grid>
-          <Grid item xs={12} md={7.5}>
+          <Grid item xs={12} md={8.5}>
             <Paper variant="outlined"></Paper>
           </Grid>
         </Grid>
