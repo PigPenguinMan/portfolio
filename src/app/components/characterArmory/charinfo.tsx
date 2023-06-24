@@ -15,6 +15,9 @@ const CharInfoBox = ({armoryProfile}:CharInfoBoxProps) => {
         <Paper variant="outlined" >
             <List > 
                     <ListItem>
+                        <ListItemText primary={armoryProfile?.CharacterName}/>
+                    </ListItem>
+                    <ListItem>
                         <ListItemText primary={armoryProfile?.CharacterLevel}/>
                     </ListItem>
                     <ListItem>

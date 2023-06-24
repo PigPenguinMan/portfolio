@@ -7,13 +7,13 @@ import AdBox from "@/app/components/adbox";
 import ArmoryNameBox from "@/app/components/characterArmory/namebox";
 import CharInfoBox from "@/app/components/characterArmory/charinfo";
 import ColletionBox from "@/app/components/characterArmory/collectionbox";
+
 import { iSummaryData } from "./api.interface";
+import EquipBox from "@/app/components/equpiment/equipbox";
 
 export interface NameProp {
   name: string;
 }
-
-
 
 const Page = ({}) => {
   const [charaData, setCharaData] = useState([]);
@@ -21,8 +21,8 @@ const Page = ({}) => {
   // characterName
   const { charaName } = useParams();
   const decodeName = decodeURIComponent(charaName);
-  // armory데이터에서 나눠지는 데이터들 
-  const [profileData,SetProfileData] = useState([])
+  // armory데이터에서 나눠지는 데이터들
+  const [profileData, SetProfileData] = useState([]);
 
   // characterName이 있는 계정의 모든 캐릭터정보 데이터
   const fetchCharaData = async () => {
@@ -61,20 +61,13 @@ const Page = ({}) => {
     }
   };
 
-
   useEffect(() => {
-      fetchCharaData();
-      fetchSummaryData()
+    fetchCharaData();
+    fetchSummaryData();
   }, []);
-  
-  console.log(summaryData);
-  
-  const filterProfileData = summaryData?.ArmoryProfile
-  const filterCollectData = summaryData?.Collectibles
 
-  
-  
-
+  const filterProfileData = summaryData?.ArmoryProfile;
+  const filterCollectData = summaryData?.Collectibles;
 
   return (
     <Box height="100vh">
@@ -99,17 +92,17 @@ const Page = ({}) => {
             <AdBox />
           </Box>
         </Grid>
-        <Grid item xs={12} md={11} mb={1}>
+        {/* <Grid item xs={12} md={11} mb={1}>
           <Paper variant="outlined" sx={{ height: "45px" }}>
             <ArmoryNameBox name={decodeName} />
           </Paper>
-        </Grid>
+        </Grid> */}
         <Grid
           container
           item
           md={11}
           justifyContent={"space-between"}
-          sx={{ height: "90vh" }}
+          height={'90vh'}
         >
           <Grid
             container
@@ -118,16 +111,20 @@ const Page = ({}) => {
             justifyContent={"flex-start"}
             xs={12}
             md={3}
+            height={'95vh'}
           >
-            <Paper>
-              <CharInfoBox armoryProfile={summaryData?.ArmoryProfile} />
-            </Paper>
-            <Paper>
-              <ColletionBox collection={summaryData?.Collectibles}/>
-            </Paper>
+            <CharInfoBox armoryProfile={summaryData?.ArmoryProfile} />
+            <ColletionBox collection={summaryData?.Collectibles} />
           </Grid>
-          <Grid item xs={12} md={8.5}>
-            <Paper variant="outlined"></Paper>
+          <Grid 
+          container
+          item 
+          flexDirection={'column'}
+          justifyContent={'flex-start'}
+          xs={12} md={8.5}
+          height={'95vh'}
+          >
+            <EquipBox summaryData={summaryData} />
           </Grid>
         </Grid>
       </Grid>

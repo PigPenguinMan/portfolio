@@ -41,7 +41,6 @@ const ColletionBox = ({ collection }: CollectionBoxProps) => {
            </TableBody>
       </Table>
     </TableContainer>
-    // 06/22 왼쪾 그리드 완성 
   );
 };
 

@@ -197,7 +197,7 @@ interface ArrayInTripods {
 
 // Collectibles
 interface Collectibles {
-  [index : number]: CollectiblesArray[];
+  [index: number]: CollectiblesArray[];
 }
 interface CollectiblesArray {
   CollectiblePoints: CollectiblePoints[];
