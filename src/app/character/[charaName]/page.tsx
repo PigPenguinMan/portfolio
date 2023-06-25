@@ -102,27 +102,26 @@ const Page = ({}) => {
           item
           md={11}
           justifyContent={"space-between"}
-          height={'90vh'}
+          height={'90%'}
         >
           <Grid
             container
             item
             flexDirection={"column"}
-            justifyContent={"flex-start"}
             xs={12}
             md={3}
-            height={'95vh'}
+            height={'95%'}
           >
             <CharInfoBox armoryProfile={summaryData?.ArmoryProfile} />
             <ColletionBox collection={summaryData?.Collectibles} />
-          </Grid>
+          </Grid> 
           <Grid 
           container
           item 
           flexDirection={'column'}
           justifyContent={'flex-start'}
           xs={12} md={8.5}
-          height={'95vh'}
+          height={'95%'}
           >
             <EquipBox summaryData={summaryData} />
           </Grid>

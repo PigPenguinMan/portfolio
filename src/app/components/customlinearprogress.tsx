@@ -67,16 +67,14 @@ const CustomLinearProgress2 = ({ value }: LinearProps) => {
       dir="rtl"
       sx={{
         display: "flex",
-        marginLeft: "5%",
         width: "70%",
         background: "none",
         // 프로그레스 진행방향이 오른쪽에서 왼쪽으로 진행되게하기
-        transform: 'rotate(180deg)',
-        "& .MuiLinearProgress-bar": {   
-          backgroundColor: color,
-          transform: 'rotate(180deg)'
+        flexDirection:'row-reverse',
+        "& .MuiLinearProgress-bar": {
+            backgroundColor: color}
           
-        },
+        
       }}
     />
   );

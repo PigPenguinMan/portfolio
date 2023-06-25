@@ -1,5 +1,5 @@
 import { iSummaryData } from "@/app/character/[charaName]/api.interface";
-import { Box,Paper } from "@mui/material";
+import { Box } from "@mui/material";
 import Equipment from "./equipment";
 import { useState } from "react";
 
@@ -13,13 +13,11 @@ const EquipBox = ({summaryData}:EquipBoxProps) => {
 
     
     return ( 
-        <Paper sx={{display:'flex', flexDirection:'column', justifyContent:'space-between' ,height:'100%'}}>
+        <Box>
             <Equipment equipment={data?.ArmoryEquipment}/>
-            <Box sx={{display:'flex',width:'100%',height:'25%', backgroundColor:'darkgrey'}}>
+        </Box>
+            
 
-            </Box>
-
-        </Paper>
      );
 }
  
