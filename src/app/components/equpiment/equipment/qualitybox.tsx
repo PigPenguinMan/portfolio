@@ -1,9 +1,9 @@
 
 interface QualityBoxProps{
-    value : number
+    value? : number
 }
 
-const QualityBox = ({value}:QualityBoxProps) => {
+const QualityBox = ({value = 0}:QualityBoxProps) => {
 
     let color: string = "ff0000";
 
@@ -21,8 +21,8 @@ const QualityBox = ({value}:QualityBoxProps) => {
       color = "ea6811";
     }
     return ( 
-     <div style={{backgroundColor:color,width:'80%',
-    textAlign:'center', borderRadius:'4px'}}>
+     <div style={{backgroundColor:color,width:'100%',
+    textAlign:'center',borderRadius:'0 0 5px 5px'}}>
         {value}
      </div>
      );
