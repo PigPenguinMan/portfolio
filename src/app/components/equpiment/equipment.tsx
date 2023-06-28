@@ -1,14 +1,7 @@
 import { ArmoryEquipment } from "@/app/character/[charaName]/api.interface";
 import {
-  Avatar,
   Box,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Paper,
 } from "@mui/material";
-import QualityBox from "./equipment/qualitybox";
 import EquipList from "./equipment/equiplist";
 import AccList from "./equipment/acclist";
 

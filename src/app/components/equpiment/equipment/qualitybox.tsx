@@ -22,7 +22,7 @@ const QualityBox = ({value = 0}:QualityBoxProps) => {
     }
     return ( 
      <div style={{backgroundColor:color,width:'100%',
-    textAlign:'center',borderRadius:'0 0 5px 5px'}}>
+    textAlign:'center',borderRadius:'0 0 5px 5px',color:'white',fontSize:'15px'}}>
         {value}
      </div>
      );

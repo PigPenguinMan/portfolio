@@ -1,6 +1,7 @@
 import { Avatar, List, ListItem, ListItemAvatar, ListItemText, Paper } from "@mui/material";
 import QualityBox from "./qualitybox";
 import { ArmoryEquipment } from "@/app/character/[charaName]/api.interface";
+import AccImage from "./accimage";
 
 interface AccProps {
     equipment?: ArmoryEquipment;
@@ -10,18 +11,17 @@ const AccList = ({equipment,tooltipData}:AccProps) => {
     const data = equipment ;
     const flatData = data ? Object.values(data).flat() : []
 
+    
     return ( 
+        
         <Paper >
-        <List sx={{ display: "flex", flexDirection: "column" ,}}>
+            <h4>장신구</h4>
+        <List sx={{ display: "flex"}}>
           {flatData.slice(6, 13).map((item, index) => (
 
-              <ListItem key={index} sx={{height:'100%'}}>
-                <ListItemAvatar sx={{display:'flex',flexDirection:'column',alignItems: "center"}}>
-                  <Avatar variant="rounded" src={item.Icon} >
-                  </Avatar>
-                  <QualityBox value={tooltipData[index].Element_001.value.qualityValue}/>
-                </ListItemAvatar>
-                <ListItemText primary={item.Name} secondary={item.Type} />
+              <ListItem key={index} >
+                <AccImage icon={item.Icon} grade={item.Grade} value={tooltipData[index].Element_001.value.qualityValue}/>
+                <ListItemText secondary={item.Type === '어빌리티 스톤' ? '돌' : item.Type} sx={{textAlign:'center'}} />
               </ListItem>
 
           ))}
