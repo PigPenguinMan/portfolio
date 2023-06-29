@@ -13,9 +13,11 @@ interface CollectionBoxProps {
   collection?:Collectibles
 }
 
+// 수집품박스 컴포넌트
 const ColletionBox = ({ collection }: CollectionBoxProps) => {
     const data = collection;
     
+    //API자체에서 
     //Collectibles 객체를 맵으로 펴기 
     const flatData = data ? Object.values(data).flat() : []
     return (

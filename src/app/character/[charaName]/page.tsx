@@ -4,7 +4,6 @@ import { useParams } from "next/navigation";
 import axios from "axios";
 import { Box, Grid, Paper } from "@mui/material";
 import AdBox from "@/app/components/adbox";
-import ArmoryNameBox from "@/app/components/characterArmory/namebox";
 import CharInfoBox from "@/app/components/characterArmory/charinfo";
 import ColletionBox from "@/app/components/characterArmory/collectionbox";
 
@@ -65,10 +64,7 @@ const Page = ({}) => {
     fetchCharaData();
     fetchSummaryData();
   }, []);
-
-  const filterProfileData = summaryData?.ArmoryProfile;
-  const filterCollectData = summaryData?.Collectibles;
-
+  
   return (
     <Box height="100vh">
       <Grid

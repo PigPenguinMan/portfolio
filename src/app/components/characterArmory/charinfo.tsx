@@ -11,7 +11,6 @@ const CharInfoBox = ({ armoryProfile }: CharInfoBoxProps) => {
   return (
     <Paper variant="outlined" sx={{display:'flex'}}>
       <List>
-        {/* 박스컴포넌트 만들어 아이콘화시키기 */}
         <ListItem>
           <ListItemText primary="이름" />
         </ListItem>

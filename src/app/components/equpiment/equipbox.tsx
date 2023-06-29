@@ -16,7 +16,6 @@ const EquipBox = ({summaryData}:EquipBoxProps) => {
         <Box>
             <Equipment equipment={data?.ArmoryEquipment}/>
         </Box>
-            
 
      );
 }

@@ -16,7 +16,7 @@ const Equipment = ({ equipment }: EqumientProps) => {
   // Tooltip에서 필요한 데이터가 있어 Json형식으로 바꿔 사용 
   const tooltipData = flatData.map((item) => JSON.parse(item.Tooltip));
 
-  
+  // 카드 각인 보석 추가 필요
   return (
     <Box
       sx={{
