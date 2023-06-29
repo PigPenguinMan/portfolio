@@ -38,7 +38,7 @@ interface Card {
   Icon: string;
   Name: string;
   Slot: number;
-  Tooltop: string;
+  Tooltip: string;
 }
 interface EffectsInCard {
   [index: number]: EffectArrayInCard[];
