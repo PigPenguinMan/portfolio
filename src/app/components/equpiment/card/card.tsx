@@ -19,9 +19,12 @@ const Card = ({card}:CardProps) => {
     // 세트 , 이미지 
     
     return ( 
-        <Box>
+        <Paper>
+
+            <h4> 카드</h4>
             <CardList card={cardData} effect={effectData} />
-        </Box>
+
+     </Paper>
      );
 }
  

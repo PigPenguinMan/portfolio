@@ -20,8 +20,6 @@ const Page = ({}) => {
   // characterName
   const { charaName } = useParams();
   const decodeName = decodeURIComponent(charaName);
-  // armory데이터에서 나눠지는 데이터들
-  const [profileData, SetProfileData] = useState([]);
 
   // characterName이 있는 계정의 모든 캐릭터정보 데이터
   const fetchCharaData = async () => {

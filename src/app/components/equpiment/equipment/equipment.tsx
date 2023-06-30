@@ -2,8 +2,8 @@ import { ArmoryEquipment } from "@/app/character/[charaName]/api.interface";
 import {
   Box,
 } from "@mui/material";
-import EquipList from "./equipment/equiplist";
-import AccList from "./equipment/acclist";
+import EquipList from "./equiplist";
+import AccList from "./acclist";
 
 interface EqumientProps {
   equipment?: ArmoryEquipment;

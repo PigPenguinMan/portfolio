@@ -1,6 +1,6 @@
 import { iSummaryData } from "@/app/character/[charaName]/api.interface";
 import { Box } from "@mui/material";
-import Equipment from "./equipment";
+import Equipment from "./equipment/equipment";
 import { useState } from "react";
 import Card from "./card/card";
 interface EquipBoxProps {
