@@ -10,8 +10,8 @@ const Card = ({card}:CardProps) => {
 
     const cardData = card ? Object.values(card).flat().slice(0,6) : []
     const effectData = card? Object.values(card).flat().slice(6,8) : []
-    console.log('cardData',cardData);
-    console.log('effect',effectData);
+    // console.log('cardData',cardData);
+    // console.log('effect',effectData);
     
     
 
