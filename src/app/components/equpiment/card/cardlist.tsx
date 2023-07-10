@@ -22,7 +22,7 @@ const CardList = ({ card, effect }: CardListProps) => {
     //     const effect1 = effect[0].Items.slice(-1)[0];
     //     const effect2 = effect[1].Items.slice(-1)[0];
     // }
-
+    
     
         
   return (
