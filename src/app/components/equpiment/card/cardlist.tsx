@@ -1,10 +1,10 @@
 import {
   CardInfo,
   EffectArrayInCard,
-  EffectsInCard,
+
 } from "@/app/character/[charaName]/api.interface";
 import { Stack } from "@mui/material";
-import CardEffect from "./carfeffect";
+
 
 
 interface CardListProps {
@@ -13,6 +13,7 @@ interface CardListProps {
 }
 
 const CardList = ({ card, effect }: CardListProps) => {
+
 
 
     // if (effect && effect[0].Items.length == 0){
@@ -54,7 +55,6 @@ const CardList = ({ card, effect }: CardListProps) => {
           <div style={{textAlign:'center'}}>
             {item.Name}
           </div>
-            <CardEffect effect={effect}/>
 
             
 
